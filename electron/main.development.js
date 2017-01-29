@@ -57,11 +57,11 @@ app.on('ready', async () => {
     ];
 
     // TODO: based on platform, different command
-    const cardanoNode = require('child_process').spawn('cardano-node.exe', cardanoFlags, {stdio: ['ignore', logfile, logfile]});
-    cardanoNode.on('error', error => {
-      dialog.showErrorBox('cardano-node exited', error.name + ": " + error.message);
-      app.quit()
-    });
+//    const cardanoNode = require('child_process').spawn('cardano-node.exe', cardanoFlags, {stdio: ['ignore', logfile, logfile]});
+//    cardanoNode.on('error', error => {
+//      dialog.showErrorBox('cardano-node exited', error.name + ": " + error.message);
+//      app.quit()
+//    });
   }
 
   mainWindow = new BrowserWindow({
@@ -90,7 +90,7 @@ app.on('ready', async () => {
   mainWindow.on('closed', () => {
     mainWindow = null;
     if (isProd) {
-      cardanoNode.kill('SIGINT');
+      // cardanoNode.kill('SIGINT');
     }
   });
 
